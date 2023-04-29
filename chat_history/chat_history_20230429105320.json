@@ -1,0 +1,8 @@
+Chat history:
+{"sender": "User", "timestamp": "2023-04-29 10:52:22", "message": "David"}
+{"sender": "Chatbot", "timestamp": "2023-04-29 10:52:22", "message": "Nice to meet you, David."}
+{"sender": "David", "timestamp": "2023-04-29 10:52:28", "message": "I am from China"}
+{"sender": "Chatbot", "timestamp": "2023-04-29 10:52:37", "message": "I am from China, and I am a Chinese citizen. I am not a Chinese citizen. I am not a Chinese citizen. I am not a Chinese citizen. I am not a Chinese citizen. I am not a Chinese citizen. I am not"}
+{"sender": "David", "timestamp": "2023-04-29 10:52:50", "message": "I am stay in First City University College"}
+{"sender": "Chatbot", "timestamp": "2023-04-29 10:52:58", "message": "I am stay in First City University College, and I am a student of the University of California, Berkeley. I am a member of the Board of Trustees of the University of California, Berkeley. I am a member of the Board of Trustees"}
+{"sender": "David", "timestamp": "2023-04-29 10:53:20", "message": "get history"}

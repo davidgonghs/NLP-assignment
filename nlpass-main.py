@@ -4,6 +4,15 @@ import spacy
 import nltk
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
 import re
+import json
+
+#get msg with json format
+def get_msg_json(sender, msg):
+    return {
+        "sender": sender,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "message": msg
+    }
 
 
 class Chatbot:
@@ -95,23 +104,33 @@ class Chatbot:
         if not os.path.exists("chat_history"):
             os.makedirs("chat_history")
         # Create a file name with timestamp
-        file_name = "chat_history_" + str(datetime.now().strftime("%Y%m%d%H%M%S")) + ".txt"
-        file_path = os.path.join("chat_history", file_name)
+        json_file_name = "chat_history_" + str(datetime.now().strftime("%Y%m%d%H%M%S")) + ".json"
+        file_path = os.path.join("chat_history", json_file_name)
         # Write chat history and knowledge to file
         with open(file_path, "w") as f:
             f.write("Chat history:\n")
             for line in self.chat_history:
+                f.write(json.dumps(line) + "\n")
+
+
+        # create a text file to sve knowledge
+        txt_file_name = "knowledge_" + str(datetime.now().strftime("%Y%m%d%H%M%S")) + ".txt"
+        file_path = os.path.join("chat_history", txt_file_name)
+        with open(file_path, "w") as f:
+            f.write("Knowledge:\n")
+            for line in self.knowledge:
                 f.write(line + "\n")
-            f.write("\nKnowledge:\n")
-            for knowledge_item in self.knowledge:
-                f.write(knowledge_item + "\n")
+
         print(f"Chat history and knowledge saved to {file_path}")
 
     def run(self):
         print("Chatbot: Hi, I'm a chatbot. What's your name?")
         while True:
             user_input = input("User: ").strip()
-            self.chat_history.append(f"User: {user_input}")
+            # Add user input to chat history, should use json format include sender , timestamp, message
+            # check if self.user_name is None,then sender is user, else sender is username
+            # self.chat_history.append(f"User: {user_input}")
+            self.chat_history.append(get_msg_json("User" if self.user_name is None else self.user_name,user_input))
 
             if user_input.lower() in ["quit", "exit", "bye"]:
                 print("Chatbot: Goodbye!")
@@ -142,7 +161,15 @@ class Chatbot:
                 response = self.generate_response(user_input_resolved)
 
             print(f"Chatbot: {response}")
-            self.chat_history.append(f"Chatbot: {response}")
+            # the chat
+            # {
+            #   "sender": "User",
+            #   "timestamp": "2023-04-29 12:34:56",
+            #   "message": "Hello, chatbot!"
+            # }
+
+            # self.chat_history.append(f"Chatbot: {response}")
+            self.chat_history.append(get_msg_json("Chatbot",response))
 
 if __name__ == "__main__":
     chatbot = Chatbot()
