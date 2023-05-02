@@ -10,6 +10,8 @@ pip3 install transformers
 pip install nltk
 pip install spacy
 
+python -m spacy download en_core_web_sm
+
 https://pytorch.org/get-started/locally/
 
 
