@@ -160,16 +160,10 @@ class Chatbot:
 
                 # Generate response with GPT-2
                 response = self.generate_response(user_input_resolved)
-                
+
                 self.chat_history.append(get_msg_json("User" if self.user_name is None else self.user_name, user_input, analysis))
 
             print(f"Chatbot: {response}")
-            # the chat
-            # {
-            #   "sender": "User",
-            #   "timestamp": "2023-04-29 12:34:56",
-            #   "message": "Hello, chatbot!"
-            # }
 
             # self.chat_history.append(f"Chatbot: {response}")
             self.chat_history.append(get_msg_json("Chatbot",response))
