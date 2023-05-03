@@ -7,11 +7,12 @@ import re
 import json
 
 #get msg with json format
-def get_msg_json(sender, msg):
+def get_msg_json(sender, msg, analysis):
     return {
         "sender": sender,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "message": msg
+        "message": msg,
+        "analysis": analysis
     }
 
 
@@ -130,7 +131,7 @@ class Chatbot:
             # Add user input to chat history, should use json format include sender , timestamp, message
             # check if self.user_name is None,then sender is user, else sender is username
             # self.chat_history.append(f"User: {user_input}")
-            self.chat_history.append(get_msg_json("User" if self.user_name is None else self.user_name,user_input))
+
 
             if user_input.lower() in ["quit", "exit", "bye"]:
                 print("Chatbot: Goodbye!")
@@ -159,6 +160,8 @@ class Chatbot:
 
                 # Generate response with GPT-2
                 response = self.generate_response(user_input_resolved)
+                
+                self.chat_history.append(get_msg_json("User" if self.user_name is None else self.user_name, user_input, analysis))
 
             print(f"Chatbot: {response}")
             # the chat
