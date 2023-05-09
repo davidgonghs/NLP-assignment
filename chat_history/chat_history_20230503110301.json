@@ -1,0 +1,8 @@
+Chat history:
+{"sender": "User", "timestamp": "2023-05-03 11:01:30", "message": "David"}
+{"sender": "Chatbot", "timestamp": "2023-05-03 11:01:30", "message": "Nice to meet you, David."}
+{"sender": "David", "timestamp": "2023-05-03 11:01:34", "message": "Hello World"}
+{"sender": "Chatbot", "timestamp": "2023-05-03 11:01:49", "message": "Hello World\" and \"The Last of Us\" are the only two songs on the album that have been released in the U.S.\n\nThe album was released on May 7, 2014.\n\nThe album was released on May 7,"}
+{"sender": "David", "timestamp": "2023-05-03 11:02:25", "message": "I am study in College"}
+{"sender": "Chatbot", "timestamp": "2023-05-03 11:02:38", "message": "I am study in College Park, NY. I am a student at the University of California, Berkeley. I am a student at the University of California, Berkeley. I am a student at the University of California, Berkeley. I am a student at"}
+{"sender": "David", "timestamp": "2023-05-03 11:03:01", "message": "get history"}

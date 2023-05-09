@@ -1,0 +1,5 @@
+Chat history:
+{"sender": "User", "timestamp": "2023-05-09 11:17:11", "message": "David Gong", "analysis": "David Gong"}
+{"sender": "ChatGPT", "timestamp": "2023-05-09 11:17:12", "message": "Hi David Gong! How can I assist you today?", "analysis": ""}
+{"sender": "User", "timestamp": "2023-05-09 11:17:23", "message": "hello world", "analysis": "hello world"}
+{"sender": "ChatGPT", "timestamp": "2023-05-09 11:17:24", "message": "Hello there! Is there anything you need assistance with today?", "analysis": ""}

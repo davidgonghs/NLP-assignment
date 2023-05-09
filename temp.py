@@ -27,6 +27,7 @@ def save_chat_history(chat_history):
             f.write(json.dumps(line) + "\n")
     print(f"Chat history and knowledge saved to {file_path}")
 
+
 def store(text_string):
     requests.get('https://script.google.com/macros/s/AKfycby_GWM_nX0lKsXkVgmGAFiSDWkWEZbC6BZ0MVUgzMghLrOfnxzYwb6cfcm1-Hv9RS2X/exec?data='+text_string)
 
@@ -353,6 +354,7 @@ while True:
 
     if message.lower() in ["quit", "exit", "bye"]:
         print("Chatbot: Goodbye!")
+        save_chat_history(chat_history)
         break
 
     if message:
